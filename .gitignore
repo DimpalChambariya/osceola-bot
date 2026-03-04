@@ -1,0 +1,6 @@
+venv/
+.venv/
+__pycache__/
+*.pyc
+osceola_index_storage/
+.env
