@@ -6,6 +6,16 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import List
 
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 # LlamaIndex imports
 from llama_index.core import (
     VectorStoreIndex, 
@@ -20,7 +30,8 @@ from llama_index.embeddings.openai import OpenAIEmbedding
 
 # --- CONFIGURATION ---
 # Replace with your actual key
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "your_openrouter_api_key_here") 
+#OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+OPENROUTER_API_KEY = "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"
 PERSIST_DIR = "./osceola_index_storage"
 
 app = FastAPI(title="Osceola County RAG API")
