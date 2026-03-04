@@ -30,8 +30,7 @@ from llama_index.embeddings.openai import OpenAIEmbedding
 
 # --- CONFIGURATION ---
 # Replace with your actual key
-#OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
-OPENROUTER_API_KEY = "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"
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 PERSIST_DIR = "./osceola_index_storage"
 
 app = FastAPI(title="Osceola County RAG API")
