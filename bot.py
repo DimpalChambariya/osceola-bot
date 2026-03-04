@@ -5,8 +5,12 @@ import json
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import List
-
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
+
+# Create FastAPI app FIRST
+app = FastAPI(title="Osceola County RAG API")
 
 app.add_middleware(
     CORSMiddleware,
@@ -32,8 +36,6 @@ from llama_index.embeddings.openai import OpenAIEmbedding
 # Replace with your actual key
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 PERSIST_DIR = "./osceola_index_storage"
-
-app = FastAPI(title="Osceola County RAG API")
 
 # Setup Logging
 logging.basicConfig(level=logging.INFO)
